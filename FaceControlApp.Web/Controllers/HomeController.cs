@@ -9,7 +9,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    public class HomeController : Controller
+    public class HomeController : AppController
     {
         private readonly ILogger<HomeController> _logger;
 

@@ -8,7 +8,7 @@
     using FaceControlApp.Domain.Entities;
     using FaceControlApp.Persistence;
 
-    public class BiometricalIdentifiersController : Controller
+    public class BiometricalIdentifiersController : AppController
     {
         private readonly FaceControlAppDbContext _context;
 

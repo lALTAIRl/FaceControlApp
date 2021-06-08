@@ -1,5 +1,6 @@
 ﻿namespace FaceControlApp.Web
 {
+    using FaceControlApp.Application;
     using FaceControlApp.Persistence;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -19,7 +20,7 @@
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddApplication();
+            services.AddApplication();
 
             services.AddPersistence(this.Configuration);
 
