@@ -1,10 +1,10 @@
-﻿using FaceControlApp.Application.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace FaceControlApp.Persistence
+﻿namespace FaceControlApp.Persistence
 {
+    using FaceControlApp.Application.Interfaces;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     public static class DependenciesBootstrapper
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)

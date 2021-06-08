@@ -1,14 +1,14 @@
-﻿using FaceControlApp.Web.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FaceControlApp.Web.Controllers
+﻿namespace FaceControlApp.Web.Controllers
 {
+    using FaceControlApp.Web.Models;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

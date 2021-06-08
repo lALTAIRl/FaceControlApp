@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace FaceControlApp.Domain.Interfaces
+﻿namespace FaceControlApp.Domain.Interfaces
 {
+    using System;
+
     public interface IBaseEntity
     {
         public Guid Id

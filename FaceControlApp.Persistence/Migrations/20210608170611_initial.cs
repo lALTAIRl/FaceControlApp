@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace FaceControlApp.Persistence.Migrations
+﻿namespace FaceControlApp.Persistence.Migrations
 {
-    public partial class Initial : Migration
+    using System;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,9 +11,9 @@ namespace FaceControlApp.Persistence.Migrations
                 name: "BiometricalIdentifiers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PersonName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FaceImage = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    Id = table.Column<Guid>(nullable: false),
+                    PersonName = table.Column<string>(nullable: true),
+                    FaceImage = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

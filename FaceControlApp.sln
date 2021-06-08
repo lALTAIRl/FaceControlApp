@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceControlApp.Domain", "FaceControllApp.Domain\FaceControlApp.Domain.csproj", "{6B41B035-D0DF-4244-A191-FCAE13759957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceControlApp.Domain", "FaceControllApp.Domain\FaceControlApp.Domain.csproj", "{6B41B035-D0DF-4244-A191-FCAE13759957}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceControlApp.Application", "FaceControlApp.Application\FaceControlApp.Application.csproj", "{31B1EDF4-47D1-46FC-BA86-FAB200B7FD8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceControlApp.Application", "FaceControlApp.Application\FaceControlApp.Application.csproj", "{31B1EDF4-47D1-46FC-BA86-FAB200B7FD8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceControlApp.Persistence", "FaceControlApp.Persistence\FaceControlApp.Persistence.csproj", "{FA5B59E2-0F18-43D1-B9E4-AEA8F8F79AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceControlApp.Persistence", "FaceControlApp.Persistence\FaceControlApp.Persistence.csproj", "{FA5B59E2-0F18-43D1-B9E4-AEA8F8F79AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceControlApp.FaceApi", "FaceControlApp.FaceApi\FaceControlApp.FaceApi.csproj", "{30893298-30F2-4382-86DA-729FAC6468E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceControlApp.FaceApi", "FaceControlApp.FaceApi\FaceControlApp.FaceApi.csproj", "{30893298-30F2-4382-86DA-729FAC6468E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceControlApp.Web", "FaceControlApp.Web\FaceControlApp.Web.csproj", "{88C046EA-6192-4496-B3A6-D584B5099DE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FaceControlApp.Web", "FaceControlApp.Web\FaceControlApp.Web.csproj", "{88C046EA-6192-4496-B3A6-D584B5099DE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{74CCFB28-E3CD-4A10-AC19-39FDB363EF38}"
 EndProject
@@ -20,6 +20,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F1591972-B4D7-45EB-BEB4-F675BA0EE7A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{3338E26E-935D-47CE-98E8-620D07FBBD45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6A41FD3-6522-44BD-8080-B8EBA6E26568}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

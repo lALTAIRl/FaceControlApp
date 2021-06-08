@@ -1,9 +1,9 @@
-﻿using FaceControlApp.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace FaceControlApp.Persistence.Configurations.Extensions
+﻿namespace FaceControlApp.Persistence.Configurations.Extensions
 {
+    using FaceControlApp.Domain.Interfaces;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
     internal static class BaseEntityConfigurationExtension
     {
         public static EntityTypeBuilder<TEntity> MapBase<TEntity>(this EntityTypeBuilder<TEntity> builder, string tableName, string schemaName)

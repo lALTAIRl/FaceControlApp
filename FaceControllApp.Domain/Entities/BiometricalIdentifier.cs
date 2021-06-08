@@ -1,8 +1,8 @@
-﻿using FaceControlApp.Domain.Interfaces;
-using System;
-
-namespace FaceControlApp.Domain.Entities
+﻿namespace FaceControlApp.Domain.Entities
 {
+    using FaceControlApp.Domain.Interfaces;
+    using System;
+
     public class BiometricalIdentifier : IBaseEntity
     {
         public Guid Id

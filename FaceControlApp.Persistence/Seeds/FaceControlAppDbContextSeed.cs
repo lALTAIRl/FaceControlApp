@@ -1,12 +1,10 @@
-﻿using FaceControlApp.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FaceControlApp.Persistence.Seeds
+﻿namespace FaceControlApp.Persistence.Seeds
 {
+    using FaceControlApp.Domain.Entities;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public static class FaceControlAppDbContextSeed
     {
         public static async Task SeedSampleDataAsync(FaceControlAppDbContext context)

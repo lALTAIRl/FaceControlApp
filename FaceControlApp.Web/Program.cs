@@ -1,15 +1,14 @@
-using FaceControlApp.Application.Interfaces;
-using FaceControlApp.Persistence;
-using FaceControlApp.Persistence.Seeds;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Threading.Tasks;
-
-namespace FaceControlApp.Web
+﻿namespace FaceControlApp.Web
 {
+    using FaceControlApp.Application.Interfaces;
+    using FaceControlApp.Persistence;
+    using FaceControlApp.Persistence.Seeds;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using System.Threading.Tasks;
+
     public class Program
     {
         public static async Task Main(string[] args)

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FaceControlApp.Application
+﻿namespace FaceControlApp.Application
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public static class DependenciesBootstrapper
     {
         //public static IServiceCollection AddApplication(this IServiceCollection services)
