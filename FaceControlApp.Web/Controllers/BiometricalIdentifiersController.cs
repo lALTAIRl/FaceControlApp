@@ -12,17 +12,20 @@
 
     public class BiometricalIdentifiersController : AppController
     {
-        private readonly FaceControlAppDbContext _context;
+        private FaceControlAppDbContext Context
+        {
+            get;
+        }
 
         public BiometricalIdentifiersController(FaceControlAppDbContext context)
         {
-            _context = context;
+            this.Context = context;
         }
 
         // GET: BiometricalIdentifiers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.BiometricalIdentifiers.ToListAsync());
+            return this.View(await this.Context.BiometricalIdentifiers.ToListAsync());
         }
 
         // GET: BiometricalIdentifiers/Details/5
@@ -41,13 +44,12 @@
             {
                 return this.NotFound();
             }
-       
         }
 
         // GET: BiometricalIdentifiers/Create
         public IActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
         // POST: BiometricalIdentifiers/Create
@@ -65,15 +67,15 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            var biometricalIdentifier = await _context.BiometricalIdentifiers.FindAsync(id);
+            var biometricalIdentifier = await this.Context.BiometricalIdentifiers.FindAsync(id);
             if (biometricalIdentifier == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
-            return View(biometricalIdentifier);
+            return this.View(biometricalIdentifier);
         }
 
         // POST: BiometricalIdentifiers/Edit/5
@@ -85,30 +87,30 @@
         {
             if (id != biometricalIdentifier.Id)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(biometricalIdentifier);
-                    await _context.SaveChangesAsync();
+                    this.Context.Update(biometricalIdentifier);
+                    await this.Context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BiometricalIdentifierExists(biometricalIdentifier.Id))
+                    if (!this.BiometricalIdentifierExists(biometricalIdentifier.Id))
                     {
-                        return NotFound();
+                        return this.NotFound();
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return this.RedirectToAction(nameof(Index));
             }
-            return View(biometricalIdentifier);
+            return this.View(biometricalIdentifier);
         }
 
         // GET: BiometricalIdentifiers/Delete/5
@@ -116,17 +118,17 @@
         {
             if (id == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            var biometricalIdentifier = await _context.BiometricalIdentifiers
+            var biometricalIdentifier = await this.Context.BiometricalIdentifiers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (biometricalIdentifier == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
-            return View(biometricalIdentifier);
+            return this.View(biometricalIdentifier);
         }
 
         // POST: BiometricalIdentifiers/Delete/5
@@ -134,15 +136,15 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var biometricalIdentifier = await _context.BiometricalIdentifiers.FindAsync(id);
-            _context.BiometricalIdentifiers.Remove(biometricalIdentifier);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var biometricalIdentifier = await this.Context.BiometricalIdentifiers.FindAsync(id);
+            this.Context.BiometricalIdentifiers.Remove(biometricalIdentifier);
+            await this.Context.SaveChangesAsync();
+            return this.RedirectToAction(nameof(Index));
         }
 
         private bool BiometricalIdentifierExists(Guid id)
         {
-            return _context.BiometricalIdentifiers.Any(e => e.Id == id);
+            return this.Context.BiometricalIdentifiers.Any(e => e.Id == id);
         }
     }
 }
