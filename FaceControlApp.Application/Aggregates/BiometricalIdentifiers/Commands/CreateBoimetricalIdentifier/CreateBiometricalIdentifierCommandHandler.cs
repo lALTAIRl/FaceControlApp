@@ -5,12 +5,13 @@
     using FaceControlApp.Application.Interfaces;
     using FaceControlApp.Domain.Entities;
     using MediatR;
+    using System;
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
 
     public class CreateBiometricalIdentifierCommandHandler 
-        : AbstractRequestHandler, IRequestHandler<CreateBiometricalIdentifierCommand, Unit>
+        : AbstractRequestHandler, IRequestHandler<CreateBiometricalIdentifierCommand, Guid>
     {
         public CreateBiometricalIdentifierCommandHandler(
             IMediator mediator, 
@@ -20,7 +21,7 @@
         {
         }
 
-        public async Task<Unit> Handle(CreateBiometricalIdentifierCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateBiometricalIdentifierCommand request, CancellationToken cancellationToken)
         {
             byte[] imageData = null;
 
@@ -29,15 +30,17 @@
                 imageData = binaryReader.ReadBytes((int)request.FaceImage.Length);
             }
 
-            this.DbContext.BiometricalIdentifiers.Add(new BiometricalIdentifier
+            var biometricalIdentifier = new BiometricalIdentifier
             {
                 PersonName = request.PersonName,
                 FaceImage = imageData
-            });
+            };
+
+            this.DbContext.BiometricalIdentifiers.Add(biometricalIdentifier);
 
             this.DbContext.SaveChanges();
 
-            return Unit.Value;
+            return biometricalIdentifier.Id;
         }
     }
 }

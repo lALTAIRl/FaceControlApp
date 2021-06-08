@@ -1,9 +1,10 @@
 ﻿namespace FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Commands.CreateBoimetricalIdentifier
 {
+    using System;
     using MediatR;
     using Microsoft.AspNetCore.Http;
 
-    public class CreateBiometricalIdentifierCommand : IRequest<Unit>
+    public class CreateBiometricalIdentifierCommand : IRequest<Guid>
     {
         public string PersonName
         {

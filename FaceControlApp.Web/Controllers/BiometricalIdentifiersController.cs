@@ -7,6 +7,7 @@
     using Microsoft.EntityFrameworkCore;
     using FaceControlApp.Domain.Entities;
     using FaceControlApp.Persistence;
+    using FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Commands.CreateBoimetricalIdentifier;
 
     public class BiometricalIdentifiersController : AppController
     {
@@ -48,20 +49,13 @@
         }
 
         // POST: BiometricalIdentifiers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PersonName,FaceImage")] BiometricalIdentifier biometricalIdentifier)
+        public async Task<IActionResult> Create(CreateBiometricalIdentifierCommand command)
         {
-            if (ModelState.IsValid)
-            {
-                biometricalIdentifier.Id = Guid.NewGuid();
-                _context.Add(biometricalIdentifier);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(biometricalIdentifier);
+            var result = await this.Mediator.Send(command);
+
+            return this.RedirectToAction("Details", new { id = result});
         }
 
         // GET: BiometricalIdentifiers/Edit/5
