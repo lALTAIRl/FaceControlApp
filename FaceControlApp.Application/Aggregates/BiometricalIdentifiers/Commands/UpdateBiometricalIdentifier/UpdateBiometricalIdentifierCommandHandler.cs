@@ -1,5 +1,6 @@
 ﻿namespace FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Commands.UpdateBiometricalIdentifier
 {
+    using System;
     using System.IO;
     using System.Linq;
     using System.Threading;
@@ -25,14 +26,15 @@
             var identifier = this.DbContext.BiometricalIdentifiers
                 .FirstOrDefault(x => x.Id == request.Id);
 
-            byte[] imageData = null;
+            var imageBase64 = "";
 
             using (var binaryReader = new BinaryReader(request.FaceImage.OpenReadStream()))
             {
-                imageData = binaryReader.ReadBytes((int)request.FaceImage.Length);
+                var imageData = binaryReader.ReadBytes((int)request.FaceImage.Length);
+                imageBase64 = Convert.ToBase64String(imageData);
             }
 
-            identifier.FaceImage = imageData;
+            identifier.FaceImage = imageBase64;
 
             this.DbContext.SaveChanges();
 

@@ -1,9 +1,8 @@
-﻿namespace FaceControlApp.Domain.Entities
+﻿namespace FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Models
 {
-    using FaceControlApp.Domain.Interfaces;
     using System;
 
-    public class BiometricalIdentifier : IBaseEntity
+    public class BiometricalIdentifierViewModel
     {
         public Guid Id
         {
@@ -15,7 +14,7 @@
             get; set;
         }
 
-        public string FaceImage
+        public string FaceImageBase64
         {
             get; set;
         }

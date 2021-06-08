@@ -8,6 +8,7 @@
     using FaceControlApp.Domain.Entities;
     using FaceControlApp.Persistence;
     using FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Commands.CreateBoimetricalIdentifier;
+    using FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Queries.GetBiometricalIdentifier;
 
     public class BiometricalIdentifiersController : AppController
     {
@@ -27,19 +28,20 @@
         // GET: BiometricalIdentifiers/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null)
+            try
             {
-                return NotFound();
-            }
+                var result = await this.Mediator.Send(new GetBiometricalIdentifierQuery
+                {
+                    Id = id.Value
+                });
 
-            var biometricalIdentifier = await _context.BiometricalIdentifiers
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (biometricalIdentifier == null)
+                return this.View(result);
+            }
+            catch
             {
-                return NotFound();
+                return this.NotFound();
             }
-
-            return View(biometricalIdentifier);
+       
         }
 
         // GET: BiometricalIdentifiers/Create

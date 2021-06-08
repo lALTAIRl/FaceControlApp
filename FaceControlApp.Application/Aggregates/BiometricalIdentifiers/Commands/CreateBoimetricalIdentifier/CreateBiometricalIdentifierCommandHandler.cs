@@ -23,17 +23,18 @@
 
         public async Task<Guid> Handle(CreateBiometricalIdentifierCommand request, CancellationToken cancellationToken)
         {
-            byte[] imageData = null;
+            var imageBase64 = "";
 
             using (var binaryReader = new BinaryReader(request.FaceImage.OpenReadStream()))
             {
-                imageData = binaryReader.ReadBytes((int)request.FaceImage.Length);
+                var imageData = binaryReader.ReadBytes((int)request.FaceImage.Length);
+                imageBase64 = Convert.ToBase64String(imageData);
             }
 
             var biometricalIdentifier = new BiometricalIdentifier
             {
                 PersonName = request.PersonName,
-                FaceImage = imageData
+                FaceImage = imageBase64
             };
 
             this.DbContext.BiometricalIdentifiers.Add(biometricalIdentifier);

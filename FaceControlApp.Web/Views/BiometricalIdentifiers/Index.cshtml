@@ -28,7 +28,8 @@
                 @Html.DisplayFor(modelItem => item.PersonName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FaceImage)
+                @*@Html.DisplayFor(modelItem => item.FaceImage)*@
+                <img src="data:image/jpg;base64,@item.FaceImage" width="250">
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
