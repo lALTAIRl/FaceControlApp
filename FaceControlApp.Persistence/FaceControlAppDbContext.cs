@@ -1,4 +1,5 @@
 ﻿using FaceControlApp.Application.Interfaces;
+using FaceControlApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FaceControlApp.Persistence
@@ -7,7 +8,12 @@ namespace FaceControlApp.Persistence
     {
         public FaceControlAppDbContext(DbContextOptions options) : base(options)
         {
+            
+        }
 
+        public DbSet<BiometricalIdentifier> BiometricalIdentifiers 
+        { 
+            get; set; 
         }
     }
 }
