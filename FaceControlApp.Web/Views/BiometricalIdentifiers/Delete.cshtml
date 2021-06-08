@@ -20,8 +20,8 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FaceImage)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FaceImage)
+        <dd class="col-sm-10">
+            <img src="data:image/jpg;base64,@Model.FaceImage" width="600">
         </dd>
     </dl>
     
