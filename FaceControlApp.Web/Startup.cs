@@ -1,6 +1,7 @@
 ﻿namespace FaceControlApp.Web
 {
     using FaceControlApp.Application;
+    using FaceControlApp.FaceApi;
     using FaceControlApp.Persistence;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,7 @@
 
             services.AddPersistence(this.Configuration);
 
-            //services.AddFaceApi();
+            services.AddFaceApi();
 
             services.AddControllersWithViews();
         }
