@@ -12,6 +12,11 @@
             get; set;
         }
 
+        DbSet<Suspect> Suspects
+        {
+            get; set;
+        }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
         int SaveChanges();

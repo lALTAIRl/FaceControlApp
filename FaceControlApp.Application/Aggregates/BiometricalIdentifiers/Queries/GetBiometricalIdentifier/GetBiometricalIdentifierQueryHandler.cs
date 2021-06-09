@@ -6,6 +6,7 @@
     using AutoMapper;
     using FaceControlApp.Application.Abstractions;
     using FaceControlApp.Application.Aggregates.BiometricalIdentifiers.Models;
+    using FaceControlApp.Application.Exceptions;
     using FaceControlApp.Application.Interfaces;
     using MediatR;
 
@@ -24,6 +25,11 @@
         {
             var biometricalIdentifier = this.DbContext.BiometricalIdentifiers
                 .FirstOrDefault(x => x.Id == request.Id);
+
+            if (biometricalIdentifier == null)
+            {
+                throw new NotFoundException();
+            }
 
             return new BiometricalIdentifierViewModel
             {

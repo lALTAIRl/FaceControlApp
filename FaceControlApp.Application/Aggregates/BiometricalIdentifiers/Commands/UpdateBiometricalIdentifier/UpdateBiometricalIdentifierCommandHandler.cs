@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using AutoMapper;
     using FaceControlApp.Application.Abstractions;
+    using FaceControlApp.Application.Exceptions;
     using FaceControlApp.Application.Interfaces;
     using MediatR;
 
@@ -25,6 +26,11 @@
         {
             var identifier = this.DbContext.BiometricalIdentifiers
                 .FirstOrDefault(x => x.Id == request.Id);
+
+            if (identifier == null)
+            {
+                throw new NotFoundException();
+            }
 
             var imageBase64 = "";
 

@@ -15,5 +15,10 @@
         { 
             get; set; 
         }
+
+        public DbSet<Suspect> Suspects
+        {
+            get; set;
+        }
     }
 }
