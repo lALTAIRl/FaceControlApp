@@ -14,5 +14,10 @@
         {
             get; set;
         }
+
+        public DateTime ShootingDate
+        {
+            get; set;
+        }
     }
 }

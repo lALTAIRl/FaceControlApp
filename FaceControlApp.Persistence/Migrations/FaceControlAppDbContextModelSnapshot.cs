@@ -45,6 +45,9 @@ namespace FaceControlApp.Persistence.Migrations
                     b.Property<string>("FaceImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("ShootingDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Suspects");
